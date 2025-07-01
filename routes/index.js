@@ -15,9 +15,11 @@ router.get('/clientes', clienteController.getAllClientes);
 router.get('/clientes/:id', clienteController.getClienteById);
 router.put('/clientes/:id', clienteController.updateCliente);
 router.delete('/clientes/:id', clienteController.deleteCliente);
+router.post('/clientes/login', clienteController.loginCliente);
 
 // Estabelecimento Routes
 router.post('/estabelecimentos', estabelecimentoController.createEstabelecimento);
+router.post('/estabelecimentos/login', estabelecimentoController.loginEstabelecimento);
 router.get('/estabelecimentos', estabelecimentoController.getAllEstabelecimentos);
 router.get('/estabelecimento/:id', estabelecimentoController.getEstabelecimentoById);
 router.put('/estabelecimentos/:id', estabelecimentoController.updateEstabelecimento);
