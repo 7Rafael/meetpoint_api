@@ -11,6 +11,10 @@ const Estabelecimento = sequelize.define('estabelecimento', {
       notEmpty: true
     }
   },
+  descricao:{
+    type: DataTypes.STRING, 
+    allowNull: true,
+  },
   cnpj: { 
     type: DataTypes.STRING, 
     allowNull: false,
