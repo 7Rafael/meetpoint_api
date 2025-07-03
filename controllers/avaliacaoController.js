@@ -25,10 +25,10 @@ export const createAvaliacao = async (req, res) => {
       cliente_id,
       estabelecimento_id,
       tipo_id,
-      comentario_id: comentario_id || null, // Garante null se não fornecido
+      comentario_id: comentario_id || null,
       nota
     }, {
-      include: defaultIncludes // Retorna os dados relacionados
+      include: defaultIncludes
     });
     
     res.status(201).json(newAvaliacao);

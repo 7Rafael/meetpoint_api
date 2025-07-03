@@ -1,8 +1,7 @@
 import Comentario from '../models/comentario.js';
 
-// Configuração padrão do include
 const includeCliente = {
-  association: 'Cliente' // Usando o alias definido no modelo
+  association: 'Cliente'
 };
 
 export const createComentario = async (req, res) => {

@@ -10,7 +10,6 @@ const Comentario = sequelize.define('comentario', {
   timestamps: true 
 });
 
-// Associação com CASCADE
 Comentario.belongsTo(Cliente, { 
   foreignKey: 'cliente_id',
   onDelete: 'CASCADE', 

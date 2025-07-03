@@ -17,7 +17,6 @@ Item.belongsTo(Estabelecimento, {
   onDelete: 'CASCADE'
 });
 
-// Modelo relacionado
 Estabelecimento.hasMany(Item, {
   as: 'Itens',
   foreignKey: 'estabelecimento_id'

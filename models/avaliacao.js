@@ -14,7 +14,7 @@ const Avaliacao = sequelize.define('avaliacao', {
   texto: { 
     type: DataTypes.STRING,
     validate: {
-      len: [5, 500] // Valida tamanho do texto
+      len: [5, 500]
     }
   },
   cliente_id: { 
@@ -46,11 +46,10 @@ const Avaliacao = sequelize.define('avaliacao', {
     }
   }
 }, {
-  timestamps: true, // Adiciona createdAt e updatedAt
-  paranoid: true    // Habilita soft delete (opcional)
+  timestamps: true, 
+  paranoid: true 
 });
 
-// Associações com CASCADE e aliases explícitos
 Avaliacao.belongsTo(Cliente, { 
   foreignKey: 'cliente_id',
   onDelete: 'CASCADE',
@@ -65,17 +64,16 @@ Avaliacao.belongsTo(Estabelecimento, {
 
 Avaliacao.belongsTo(Tipo, { 
   foreignKey: 'tipo_id',
-  onDelete: 'RESTRICT', // Impede deletar tipo se houver avaliações
+  onDelete: 'RESTRICT', 
   as: 'Tipo'
 });
 
 Avaliacao.belongsTo(Comentario, { 
   foreignKey: 'comentario_id',
-  onDelete: 'SET NULL', // Mantém avaliação se comentário for deletado
+  onDelete: 'SET NULL', 
   as: 'Comentario'
 });
 
-// Relações inversas
 Cliente.hasMany(Avaliacao, { 
   foreignKey: 'cliente_id',
   as: 'Avaliacoes'
@@ -91,7 +89,7 @@ Tipo.hasMany(Avaliacao, {
   as: 'Avaliacoes'
 });
 
-Comentario.hasOne(Avaliacao, {  // Alterado para hasOne
+Comentario.hasOne(Avaliacao, {
   foreignKey: 'comentario_id',
   as: 'Avaliacao'
 });

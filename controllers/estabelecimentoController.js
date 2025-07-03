@@ -3,8 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import Estabelecimento from '../models/estabelecimento.js';
 
-// Configurações JWT (use variáveis de ambiente em produção)
-const JWT_SECRET = 'sua_chave_secreta_super_segura';
+const JWT_SECRET = 'asd9090890sadmksjldaiop90s8dKJLSDFKL8909009jISHNUUDasd';
 const JWT_EXPIRES_IN = '1h';
 
 export const loginEstabelecimento = async (req, res) => {
@@ -14,7 +13,6 @@ export const loginEstabelecimento = async (req, res) => {
     if (!email || !senha) {
       return res.status(400).json({ error: 'Email e senha são obrigatórios' });
     }
-    // Busca o estabelecimento incluindo a senha (normalmente excluída por padrão)
     const estabelecimento = await Estabelecimento.findOne({ where: { email } });
 
     if (!estabelecimento) {
@@ -57,7 +55,6 @@ export const createEstabelecimento = async (req, res) => {
   try {
     const { nome, cnpj, senha, email, categoria } = req.body;
 
-    // Validação básica
     if (!nome || !cnpj || !senha || !email || !categoria) {
       console.log('Campos faltando:', { nome, cnpj, senha, email, categoria });
       return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
@@ -137,7 +134,6 @@ export const getAllEstabelecimentos = async (req, res) => {
   }
 };
 
-// Add update, delete, and getById similar to Estabelecimento controller
 
 export const getEstabelecimentoById = async (req, res) => {
   try {

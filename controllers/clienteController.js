@@ -2,7 +2,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import Cliente from '../models/cliente.js';
 
-// Configurações (em produção, use variáveis de ambiente)
 const JWT_SECRET = 'sua_chave_secreta_super_segura'; // Substitua por uma chave segura
 const JWT_EXPIRES_IN = '1h';
 

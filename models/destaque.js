@@ -38,7 +38,6 @@ const Destaque = sequelize.define('destaque', {
   underscored: true 
 });
 
-// Associação com CASCADE
 Destaque.belongsTo(Estabelecimento, { 
   foreignKey: 'estabelecimento_id',
   onDelete: 'CASCADE',
