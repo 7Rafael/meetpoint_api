@@ -1,6 +1,5 @@
 import Avaliacao from '../models/avaliacao.js';
 
-// Configurações de include
 const defaultIncludes = [
   { association: 'Cliente', attributes: ['id', 'nome'] },
   { association: 'Estabelecimento', attributes: ['id', 'nome'] },

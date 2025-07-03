@@ -1,9 +1,8 @@
 import Destaque from '../models/destaque.js';
 
-// Configuração padrão do include
 const includeEstabelecimento = {
   association: 'Estabelecimento',
-  attributes: ['id', 'nome'] // Traz apenas estes campos
+  attributes: ['id', 'nome']
 };
 
 export const createDestaque = async (req, res) => {
@@ -36,7 +35,7 @@ export const getAllDestaques = async (req, res) => {
   try {
     const destaques = await Destaque.findAll({
       include: [includeEstabelecimento],
-      order: [['created_at', 'DESC']] // Ordena por data de criação
+      order: [['created_at', 'DESC']]
     });
     res.json(destaques);
   } catch (error) {
@@ -51,7 +50,7 @@ export const getDestaqueById = async (req, res) => {
   try {
     const destaque = await Destaque.findByPk(req.params.id, {
       include: [includeEstabelecimento],
-      paranoid: false // Para incluir registros deletados (opcional)
+      paranoid: false
     });
     
     if (!destaque) {
@@ -71,7 +70,7 @@ export const updateDestaque = async (req, res) => {
   try {
     const [updated] = await Destaque.update(req.body, {
       where: { id: req.params.id },
-      returning: true // Para PostgreSQL
+      returning: true
     });
     
     if (!updated) {
@@ -95,7 +94,7 @@ export const deleteDestaque = async (req, res) => {
   try {
     const deleted = await Destaque.destroy({
       where: { id: req.params.id },
-      force: true // Para desativar o soft delete se necessário
+      force: true
     });
     
     if (!deleted) {

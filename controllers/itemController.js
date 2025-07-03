@@ -1,7 +1,6 @@
 import Item from '../models/item.js';
 import Estabelecimento from '../models/estabelecimento.js';
 
-// Configuração padrão do include
 const includeEstabelecimento = {
   model: Estabelecimento,
   as: 'Estabelecimento'
